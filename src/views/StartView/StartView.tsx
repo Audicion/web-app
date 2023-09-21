@@ -10,9 +10,9 @@ export const StartView: FC = () => {
   const increment = useCallback(() => {
     setStep(progressStep + 1);
   }, [progressStep]);
-  const decrement = () => {
+  const decrement = useCallback(() => {
     setStep(progressStep - 1);
-  };
+  }, [progressStep]);
 
   return (
     <div className="view">
