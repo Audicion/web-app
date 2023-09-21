@@ -20,6 +20,18 @@ To start web app in development mode, run the command:
 pnpm dev
 ```
 
+To format all files, run the command:
+
+```sh
+pnpm format
+```
+
+To preview production build, run the command:
+
+```sh
+pnpm preview
+```
+
 ## Design
 
 The interface layouts are made in [Figma](https://www.figma.com/file/jFzi3jVgHwV8X3utiobkK5/Audici%C3%B3n?type=design&node-id=0%3A1&mode=design&t=BpbhAbFGtjzko2uG-1).
