@@ -3,8 +3,11 @@ import { type FC, useCallback } from 'react';
 
 import { Button } from '$components';
 import { setStep, step } from '$stores/navigation';
+import { useTitle } from '$utils/hooks';
 
 export const StartView: FC = () => {
+  useTitle('Приготовьтесь');
+
   const progressStep = useStore(step);
 
   const increment = useCallback(() => {
