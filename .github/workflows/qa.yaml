@@ -2,6 +2,9 @@ name: Quality assurance
 
 on: [push, workflow_dispatch]
 
+env:
+  PNPM_VERSION: '8.6.2'
+
 jobs:
   lint:
     name: Lint
