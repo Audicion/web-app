@@ -37,6 +37,9 @@
     "*.{css,scss}": [
       "prettier --write",
       "stylelint --fix"
+    ],
+    "*.{yaml,md}": [
+      "prettier --write"
     ]
   },
   "devDependencies": {
