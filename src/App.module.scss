@@ -23,6 +23,8 @@
 }
 
 .stepper {
+  pointer-events: none;
+
   position: absolute;
   bottom: 40px;
   left: 60px;
