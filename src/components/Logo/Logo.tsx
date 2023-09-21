@@ -19,10 +19,16 @@ export const Logo: FC<LogoProps> = ({ dimmed, className }) => {
   }, 500);
 
   return (
-    <div className={clsx(styles.logo, {
-      dimmed,
-      [styles.visible]: visible,
-    }, className)}>
+    <div
+      className={clsx(
+        styles.logo,
+        {
+          dimmed,
+          [styles.visible]: visible,
+        },
+        className,
+      )}
+    >
       <span className={styles.text}>Audición</span>
       <img src={logo} alt="Логотип Audición" />
     </div>
