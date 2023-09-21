@@ -1,7 +1,16 @@
 import { useEffect } from 'react';
 
-export function useTitle(title: string) {
+const prefix = 'Audición';
+
+/**
+ * Sets tab title
+ */
+export function useTitle(title?: string) {
   useEffect(() => {
-    document.title = `Audición – ${title}`;
+    let fullTitle = prefix;
+    if (title) {
+      fullTitle += ` – ${title}`;
+    }
+    document.title = fullTitle;
   }, [title]);
 }
