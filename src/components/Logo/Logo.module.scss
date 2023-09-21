@@ -1,0 +1,9 @@
+.text {
+  font: var(--font-action);
+  letter-spacing: var(--font-action-letter-spacing);
+}
+
+.logo {
+  display: flex;
+  gap: 8px;
+}
