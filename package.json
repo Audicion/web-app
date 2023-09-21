@@ -26,7 +26,8 @@
     "react-dom": "^18.2.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "nano-staged"
+    "pre-commit": "npx nano-staged",
+    "commit-msg": "npx commitlint --edit ${1}"
   },
   "nano-staged": {
     "*.{js,jsx,ts}": [
@@ -39,6 +40,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@types/node": "^20.6.3",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
