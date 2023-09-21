@@ -30,7 +30,7 @@
     "commit-msg": "npx commitlint --edit ${1}"
   },
   "nano-staged": {
-    "*.{js,jsx,ts}": [
+    "*.{js,jsx,ts,tsx}": [
       "prettier --write",
       "eslint --fix"
     ],
