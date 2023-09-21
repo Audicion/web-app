@@ -15,7 +15,7 @@
     "lint:scripts": "eslint . --ext ts,tsx --max-warnings 0",
     "lint:styles": "stylelint 'src/**/*.{css,scss}'",
     "lint:prettier": "prettier --check .",
-    "preview": "vite preview"
+    "preview": "pnpm build && vite preview --host"
   },
   "dependencies": {
     "@nanostores/react": "^0.7.1",
