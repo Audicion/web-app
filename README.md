@@ -1,4 +1,4 @@
-# Audición
+# Audición [![Quality assurance](https://github.com/Audicion/web-app/actions/workflows/qa.yaml/badge.svg)](https://github.com/Audicion/web-app/actions/workflows/qa.yaml)
 
 ## Development
 
@@ -19,3 +19,7 @@ To start web app in development mode, run the command:
 ```sh
 pnpm dev
 ```
+
+## Design
+
+The interface layouts are made in [Figma](https://www.figma.com/file/jFzi3jVgHwV8X3utiobkK5/Audici%C3%B3n?type=design&node-id=0%3A1&mode=design&t=BpbhAbFGtjzko2uG-1).
