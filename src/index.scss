@@ -13,12 +13,16 @@
 
   // Colors
   --color-background-primary: #151515;
+  --color-background-elevated: rgb(255 255 255 / 9%);
   --color-background-overlay: rgb(255 255 255 / 4%);
   --color-content-primary: #e5e5e5;
 
   // Border radius
   --border-radius-m: 5px;
   --border-radius-l: 10px;
+
+  // Shadows
+  --box-shadow-focus-stroke: 0 0 0 2px rgb(255 255 255 / 10%) inset;
 
   color-scheme: 'dark';
 }
