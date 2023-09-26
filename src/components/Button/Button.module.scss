@@ -1,3 +1,32 @@
 .button {
+  user-select: none;
+
+  display: inline-block;
+
+  height: fit-content;
+  padding: 14px 20px;
+
+  font: var(--font-action);
+  line-height: 1;
   color: var(--color-content-primary);
+  letter-spacing: var(--font-action-letter-spacing);
+
+  background: var(--color-background-elevated);
+  border-radius: var(--border-radius-m);
+
+  &:hover {
+    background: rgb(255 255 255 / 22%);
+  }
+
+  &:focus-visible {
+    box-shadow: var(--box-shadow-focus-stroke);
+  }
+
+  &:active {
+    background: rgb(255 255 255 / 40%);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
 }
