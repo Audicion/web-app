@@ -24,6 +24,10 @@
   // Shadows
   --box-shadow-focus-stroke: 0 0 0 2px rgb(255 255 255 / 10%) inset;
 
+  // Transitions;
+  --transition-slow: 0.3s ease-out;
+  --transition-default: 0.18s ease-out;
+
   color-scheme: 'dark';
 }
 

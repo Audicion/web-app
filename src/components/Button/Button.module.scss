@@ -14,8 +14,11 @@
   background: var(--color-background-elevated);
   border-radius: var(--border-radius-m);
 
+  transition: var(--transition-default);
+
   &:hover {
     background: rgb(255 255 255 / 22%);
+    transition: background 0s;
   }
 
   &:focus-visible {
