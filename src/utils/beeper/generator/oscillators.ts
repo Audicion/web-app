@@ -1,4 +1,6 @@
-export function oscillateFadeOut(
+import { sleep } from '$utils/timing';
+
+export async function oscillateFadeOut(
   context: AudioContext,
   destination: AudioNode,
   ms: number,
@@ -15,4 +17,7 @@ export function oscillateFadeOut(
   osc.connect(mixer);
   osc.start(0);
   osc.stop(endTime);
+
+  await sleep(ms);
+  mixer.disconnect(destination);
 }

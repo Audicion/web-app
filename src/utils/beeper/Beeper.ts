@@ -1,43 +1,59 @@
 /* eslint-disable accessor-pairs */
-import { sleep } from '$utils/timing';
 import { BeepGenerator } from './generator';
 
 export class Beeper {
   private readonly generator: BeepGenerator;
-  public enabled = false;
+  private readonly context: AudioContext;
+  private intervalId: number | null = null;
+  public frequency = 440;
 
   constructor(
-    public interval = 500,
-    duration: number,
+    public interval: number,
+    public duration: number,
   ) {
-    this.generator = new BeepGenerator(new AudioContext(), duration);
+    this.context = new AudioContext();
+    this.generator = new BeepGenerator(this.context);
+  }
+
+  public get enabled() {
+    return Boolean(this.intervalId);
   }
 
   public set volume(value: number) {
     this.generator.volume = value;
   }
 
-  public set frequency(value: number) {
-    this.generator.frequency = value;
-  }
-
   public set balance(value: number) {
     this.generator.balance = value;
   }
 
+  public async close() {
+    if (this.enabled) {
+      this.stop();
+    }
+    await this.context.close();
+  }
+
   public stop() {
-    this.enabled = false;
+    if (!this.intervalId) {
+      throw Error('Beeper is not started');
+    }
+    window.clearInterval(this.intervalId);
+    this.intervalId = null;
   }
 
   public start() {
-    this.enabled = true;
-    this.loop().then(() => {});
+    if (this.enabled) {
+      throw new Error('Already started');
+    }
+    // Play first manually to avoid start delay
+    this.play();
+    this.intervalId = window.setInterval(() => {
+      this.play();
+    }, this.interval);
   }
 
-  private async loop() {
-    while (this.enabled) {
-      await this.generator.play();
-      await sleep(this.interval);
-    }
+  private play() {
+    this.generator.play(this.frequency, this.duration);
   }
 }
