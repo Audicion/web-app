@@ -1,14 +1,14 @@
 import { useStore } from '@nanostores/react';
 
-import { step, view } from '$stores/navigation';
+import { $step, $view } from '$stores/navigation';
 import { Logo } from './components';
 import { View } from './views';
 
 import styles from './App.module.scss';
 
 function App() {
-  const activeView = useStore(view);
-  const progressStep = useStore(step);
+  const activeView = useStore($view);
+  const progressStep = useStore($step);
 
   return (
     <>
