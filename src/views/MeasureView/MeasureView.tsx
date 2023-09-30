@@ -1,4 +1,4 @@
-import { type ChangeEvent, type FC, useCallback, useEffect, useState } from 'react';
+import { type ChangeEvent, type FC, useCallback, useState } from 'react';
 
 import { Button } from '$components';
 import { useBeeper } from '$utils/beeper';
@@ -31,13 +31,6 @@ export const MeasureView: FC = () => {
 
   const handleFrequencyChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setFrequency(parseInt(e.target.value));
-  }, []);
-
-  useEffect(() => {
-    start();
-    return () => {
-      stop();
-    };
   }, []);
 
   return (

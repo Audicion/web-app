@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Beeper } from './Beeper';
 
@@ -9,41 +9,38 @@ export function useBeeper(
   interval: number,
   duration: number,
 ) {
-  const beeperRef = useRef<Beeper>(new Beeper(interval, duration));
-  const beeper = beeperRef.current;
+  const beeperRef = useRef<Beeper>();
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    beeper.volume = volume;
-    beeper.frequency = frequency;
-    beeper.balance = balance;
+    const beeper = new Beeper(interval, duration);
+    beeperRef.current = beeper;
     return () => {
-      beeper.stop();
+      beeper.destroy();
     };
-  }, []);
+  }, [interval, duration]);
 
   const start = () => {
-    beeper.start();
+    beeperRef.current?.start();
+    setEnabled(true);
   };
 
   const stop = () => {
-    beeper.stop();
+    beeperRef.current?.stop();
+    setEnabled(false);
   };
 
   useEffect(() => {
-    beeper.frequency = frequency;
-  }, [frequency]);
-
-  useEffect(() => {
-    beeper.volume = volume;
-  }, [volume]);
-
-  useEffect(() => {
-    beeper.balance = balance;
-  }, [balance]);
+    if (beeperRef.current) {
+      beeperRef.current.frequency = frequency;
+      beeperRef.current.volume = volume;
+      beeperRef.current.balance = balance;
+    }
+  }, [frequency, volume, balance, beeperRef.current]);
 
   return {
     start,
     stop,
-    enabled: Boolean(beeper.enabled),
+    enabled,
   };
 }
