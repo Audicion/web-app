@@ -1,21 +1,11 @@
-import { useStore } from '@nanostores/react';
-import { type FC, useCallback } from 'react';
+import { type FC } from 'react';
 
 import { Button } from '$components';
-import { setStep, step } from '$stores/navigation';
+import { nextStep, previousStep } from '$stores/navigation';
 import { useTitle } from '$utils/hooks';
 
 export const StartView: FC = () => {
   useTitle('Приготовьтесь');
-
-  const progressStep = useStore(step);
-
-  const increment = useCallback(() => {
-    setStep(progressStep + 1);
-  }, [progressStep]);
-  const decrement = useCallback(() => {
-    setStep(progressStep - 1);
-  }, [progressStep]);
 
   return (
     <div className="view">
@@ -23,8 +13,8 @@ export const StartView: FC = () => {
         <h1>Привет 🦊</h1>
       </div>
       <div className="view-actions">
-        <Button onClick={decrement}>Минус</Button>
-        <Button onClick={increment}>Плюс</Button>
+        <Button onClick={previousStep}>Минус</Button>
+        <Button onClick={nextStep}>Плюс</Button>
       </div>
     </div>
   );
