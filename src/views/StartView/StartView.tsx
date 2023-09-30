@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 
 import { Button } from '$components';
-import { nextStep, previousStep } from '$stores/navigation';
+import { nextStep, previousStep, setView } from '$stores/navigation';
 import { useTitle } from '$utils/title';
 
 export const StartView: FC = () => {
@@ -15,6 +15,7 @@ export const StartView: FC = () => {
       <div className="view-actions">
         <Button onClick={previousStep}>Минус</Button>
         <Button onClick={nextStep}>Плюс</Button>
+        <Button onClick={() => setView('measure')}>Далее</Button>
       </div>
     </div>
   );
