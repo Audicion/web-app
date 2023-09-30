@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Beeper } from './Beeper';
 
@@ -16,19 +16,26 @@ export function useBeeper(
     const beeper = new Beeper(interval, duration);
     beeperRef.current = beeper;
     return () => {
-      beeper.destroy();
+      beeper.close();
     };
   }, [interval, duration]);
 
-  const start = () => {
-    beeperRef.current?.start();
-    setEnabled(true);
-  };
+  useEffect(() => {
+    setEnabled(Boolean(beeperRef.current?.enabled));
+  }, [beeperRef.current?.enabled]);
 
-  const stop = () => {
+  const start = useCallback(() => {
+    if (!beeperRef.current) {
+      return;
+    }
+    beeperRef.current.start();
+    setEnabled(true);
+  }, []);
+
+  const stop = useCallback(() => {
     beeperRef.current?.stop();
     setEnabled(false);
-  };
+  }, []);
 
   useEffect(() => {
     if (beeperRef.current) {
