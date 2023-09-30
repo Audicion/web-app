@@ -1,16 +1,27 @@
 import clsx from 'clsx';
-import { type ButtonHTMLAttributes, type FC } from 'react';
+import { type ButtonHTMLAttributes, type FC, type MouseEventHandler } from 'react';
 
 import styles from './Button.module.scss';
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+}
 
-export const Button: FC<ButtonProps> = ({ children, className, ...restProps }) => {
+export const Button: FC<ButtonProps> = ({
+  children,
+  className,
+  disabled = false,
+  onClick,
+  ...restProps
+}) => {
   return (
     <button
-      onClick={() => {}}
-      className={clsx(styles.button, className)}
       {...restProps}
+      disabled={disabled}
+      onClick={onClick}
+      className={clsx(styles.button, className)}
     >
       {children}
     </button>
