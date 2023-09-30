@@ -1,13 +1,12 @@
-/* eslint-disable accessor-pairs */
 import { BeepGenerator } from './generator';
 
 export class Beeper {
-  public readonly generator: BeepGenerator;
-  private readonly context: AudioContext;
-  private intervalId: number | null = null;
   public interval = 1000;
   public duration = 500;
   public frequency = 440;
+  public readonly generator: BeepGenerator;
+  private readonly context: AudioContext;
+  private intervalId: number | null = null;
 
   constructor() {
     this.context = new AudioContext();

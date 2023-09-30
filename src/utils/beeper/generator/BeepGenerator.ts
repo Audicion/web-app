@@ -21,34 +21,39 @@ export class BeepGenerator {
     this.output.connect(this.panner.input);
   }
 
-  set volume(value: number) {
+  public set volume(value: number) {
     assertVolume(value);
     this._volume = value;
   }
 
-  get volume() {
+  public get volume() {
     return this._volume;
   }
 
-  set balance(value: number) {
-    assertBalance(value);
-    this._balance = value;
+  public set volumeLimits({ max, min }: BeepVolumeLimits) {
+    this.volumeMax = max;
+    this.volumeMin = min;
   }
 
-  get balance() {
-    return this._balance;
-  }
-
-  set volumeLimits(value: BeepVolumeLimits) {
-    this.volumeMax = value.max;
-    this.volumeMin = value.min;
-  }
-
-  get volumeLimits(): BeepVolumeLimits {
+  public get volumeLimits(): BeepVolumeLimits {
     return {
       min: this.volumeMin,
       max: this.volumeMax,
     };
+  }
+
+  public set balance(value: number) {
+    assertBalance(value);
+    this._balance = value;
+  }
+
+  public get balance() {
+    return this._balance;
+  }
+
+  public async play(frequency: number, ms: number) {
+    this.applySettings();
+    await oscillateFadeOut(this.context, this.output, ms, frequency);
   }
 
   private applySettings() {
@@ -56,10 +61,5 @@ export class BeepGenerator {
     const targetVolume = this.volumeMin + volumeDelta * this._volume;
     this.output.gain.setValueAtTime(targetVolume, this.context.currentTime);
     this.panner.setValue(this._balance);
-  }
-
-  public async play(frequency: number, ms: number) {
-    this.applySettings();
-    await oscillateFadeOut(this.context, this.output, ms, frequency);
   }
 }

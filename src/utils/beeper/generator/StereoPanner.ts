@@ -21,28 +21,28 @@ export class StereoPanner {
     this.right.connect(this.merger, 0, 1);
   }
 
-  connect(node: AudioNode, output?: number, input?: number) {
+  public connect(node: AudioNode, output?: number, input?: number) {
     return this.merger.connect(node, output, input);
   }
 
-  disconnect(node: AudioNode) {
+  public disconnect(node: AudioNode) {
     return this.merger.disconnect(node);
   }
 
-  get input() {
+  public get input() {
     return this.upMixer;
   }
 
-  getValue() {
+  public getValue() {
     return this.right.gain.value - this.left.gain.value;
   }
 
-  setValueAtTime(value: number, startTime: number) {
+  public setValueAtTime(value: number, startTime: number) {
     this.left.gain.setValueAtTime(Math.min(1 - value, 1), startTime);
     this.right.gain.setValueAtTime(Math.min(1 + value, 1), startTime);
   }
 
-  setValue(value: number) {
+  public setValue(value: number) {
     this.setValueAtTime(value, this.context.currentTime);
   }
 }

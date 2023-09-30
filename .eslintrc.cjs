@@ -26,6 +26,33 @@ module.exports = {
     '@typescript-eslint/triple-slash-reference': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
+    '@typescript-eslint/explicit-member-accessibility': [
+      'error',
+      {
+        accessibility: 'explicit',
+        overrides: {
+          accessors: 'explicit',
+          constructors: 'no-public',
+          methods: 'explicit',
+          properties: 'off',
+          parameterProperties: 'explicit',
+        },
+      },
+    ],
+    '@typescript-eslint/member-ordering': [
+      'error',
+      {
+        default: [
+          'public-field',
+          'private-field',
+          'field',
+          'constructor',
+          'public-method',
+          'private-method',
+          'method',
+        ],
+      },
+    ],
     'react/sort-prop-types': 'error',
     'no-undef-init': 'off',
     '@typescript-eslint/member-delimiter-style': [
