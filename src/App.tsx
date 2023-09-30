@@ -1,6 +1,7 @@
 import { useStore } from '@nanostores/react';
 
 import { $step, $view } from '$stores/navigation';
+import { TitleContext } from '$utils/title';
 import { Logo } from './components';
 import { View } from './views';
 
@@ -11,7 +12,7 @@ function App() {
   const progressStep = useStore($step);
 
   return (
-    <>
+    <TitleContext.Provider value="Audición">
       <Logo className={styles.logo} />
       <div className={styles.container}>
         <div className={styles.view}>
@@ -21,7 +22,7 @@ function App() {
           </div>
         </div>
       </div>
-    </>
+    </TitleContext.Provider>
   );
 }
 
