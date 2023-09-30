@@ -18,6 +18,7 @@ module.exports = {
   plugins: ['react', 'eslint-plugin-simple-import-sort'],
   rules: {
     'comma-dangle': 'off',
+    'multiline-ternary': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',

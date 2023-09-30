@@ -82,13 +82,11 @@ export const MeasureView: FC = () => {
         </div>
       </div>
       <div className="view-actions">
-        {enabled
-          ? (
+        {enabled ? (
           <Button onClick={stop}>Выключить звук</Button>
-            )
-          : (
+        ) : (
           <Button onClick={start}>Включить звук</Button>
-            )}
+        )}
       </div>
     </div>
   );
