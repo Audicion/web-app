@@ -2,29 +2,20 @@
 import { BeepGenerator } from './generator';
 
 export class Beeper {
-  private readonly generator: BeepGenerator;
+  public readonly generator: BeepGenerator;
   private readonly context: AudioContext;
   private intervalId: number | null = null;
+  public interval = 1000;
+  public duration = 500;
   public frequency = 440;
 
-  constructor(
-    public interval: number,
-    public duration: number,
-  ) {
+  constructor() {
     this.context = new AudioContext();
     this.generator = new BeepGenerator(this.context);
   }
 
   public get enabled() {
     return Boolean(this.intervalId);
-  }
-
-  public set volume(value: number) {
-    this.generator.volume = value;
-  }
-
-  public set balance(value: number) {
-    this.generator.balance = value;
   }
 
   public async close() {

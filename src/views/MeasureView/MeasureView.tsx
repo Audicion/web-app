@@ -5,9 +5,6 @@ import { useBeeper } from '$utils/beeper';
 
 import styles from './MeasureView.module.scss';
 
-const beepInterval = 1000;
-const beepDuration = 1000;
-
 export const MeasureView: FC = () => {
   const [volume, setVolume] = useState(0.5);
   const [balance, setBalance] = useState(0);
@@ -15,10 +12,10 @@ export const MeasureView: FC = () => {
 
   const { start, stop, enabled } = useBeeper(
     frequency,
-    volume,
     balance,
-    beepInterval,
-    beepDuration,
+    volume,
+    { min: 0.00001, max: 0.1 },
+    { interval: 1000, duration: 1000 },
   );
 
   const handleVolumeChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
