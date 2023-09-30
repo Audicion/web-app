@@ -64,9 +64,9 @@ export const MeasureView: FC = () => {
             className={styles.range}
             type="range"
             value={frequency}
-            step={0.0001}
+            step={10}
             min={100}
-            max={4000}
+            max={2000}
             onChange={handleFrequencyChange}
           />
         </div>
