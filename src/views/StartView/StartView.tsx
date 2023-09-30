@@ -2,7 +2,7 @@ import { type FC } from 'react';
 
 import { Button } from '$components';
 import { nextStep, previousStep } from '$stores/navigation';
-import { useTitle } from '$utils/hooks';
+import { useTitle } from '$utils/title';
 
 export const StartView: FC = () => {
   useTitle('Приготовьтесь');

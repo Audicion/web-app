@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { type FC, useState } from 'react';
+import { type FC, useCallback, useState } from 'react';
 
 import logo from '$assets/logo.svg';
-import { useTimeout } from '$utils/hooks';
+import { useTimeout } from '$utils/timing';
 
 import styles from './Logo.module.scss';
 
@@ -14,9 +14,8 @@ export interface LogoProps {
 export const Logo: FC<LogoProps> = ({ dimmed, className }) => {
   const [visible, setVisible] = useState(false);
 
-  useTimeout(() => {
-    setVisible(true);
-  }, 500);
+  const show = useCallback(() => setVisible(true), []);
+  useTimeout(show, 500);
 
   return (
     <div
