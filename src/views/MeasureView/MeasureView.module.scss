@@ -1,0 +1,12 @@
+.row {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.range {
+  width: 100%;
+}
+
+.row + .row {
+  margin-top: 8px;
+}

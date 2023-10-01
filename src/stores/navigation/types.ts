@@ -1,1 +1,1 @@
-export type AppView = 'start';
+export type AppView = 'start' | 'measure';
