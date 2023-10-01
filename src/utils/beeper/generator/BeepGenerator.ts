@@ -6,11 +6,15 @@ import type { BeepVolumeLimits } from './types';
 const assertVolume = createRangeAssert('Volume', 0, 1);
 const assertBalance = createRangeAssert('Balance', -1, 1);
 
+/**
+ * Beep generator. Creates a sound pipeline:
+ * Oscillator → Gain → StereoPanner → AudioContext
+ */
 export class BeepGenerator {
-  private readonly panner: StereoPanner;
-  private readonly output: GainNode;
-  private _balance = 0;
-  private _volume = 0.5;
+  private readonly panner: StereoPanner; // Stereo panning control
+  private readonly output: GainNode; // Audio output control
+  private _balance = 0; // Balance between left and right channels
+  private _volume = 0.5; // Output volume
   private volumeMin = 0;
   private volumeMax = 1;
 

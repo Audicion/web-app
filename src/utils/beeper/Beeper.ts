@@ -1,5 +1,8 @@
 import { BeepGenerator } from './generator';
 
+/**
+ * Wrapper over the beep generator for periodic playback
+ */
 export class Beeper {
   public interval = 1000;
   public duration = 500;
