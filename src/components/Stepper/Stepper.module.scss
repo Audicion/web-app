@@ -1,0 +1,10 @@
+.stepper {
+  display: flex;
+  gap: 4px;
+}
+
+.step {
+  &.middle {
+    margin-left: 12px;
+  }
+}

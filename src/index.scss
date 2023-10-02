@@ -16,6 +16,7 @@
   --color-background-elevated: rgb(255 255 255 / 9%);
   --color-background-overlay: rgb(255 255 255 / 4%);
   --color-content-primary: #e5e5e5;
+  --color-content-secondary: rgb(255 255 255 / 40%);
 
   // Border radius
   --border-radius-m: 5px;
@@ -48,8 +49,9 @@ h1 {
 }
 
 .view {
-  display: grid;
-  grid-template-rows: 90% 10%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
@@ -57,4 +59,5 @@ h1 {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
+  margin-top: auto;
 }
