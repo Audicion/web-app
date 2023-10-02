@@ -1,4 +1,5 @@
 import { $step, $view } from './atoms';
+import { DEFAULT_STEP, STEP_COUNT } from './constants';
 import { type AppView } from './types';
 
 export function setView(value: AppView) {
@@ -10,10 +11,11 @@ export function setStep(value: number) {
 }
 
 export function nextStep() {
-  setStep($step.get() + 1);
+  const target = Math.min(STEP_COUNT, $step.get() + 1);
+  setStep(target);
 }
 
 export function previousStep() {
-  const target = Math.max(0, $step.get() - 1);
+  const target = Math.max(DEFAULT_STEP, $step.get() - 1);
   setStep(target);
 }
