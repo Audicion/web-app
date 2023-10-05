@@ -1,0 +1,20 @@
+.step {
+  width: 8px;
+  height: 8px;
+
+  appearance: none;
+  background: var(--color-background-overlay);
+  border-radius: 50%;
+  box-shadow: none;
+
+  transition: var(--transition-slow);
+}
+
+.active {
+  background: var(--color-background-overlay);
+  box-shadow: 0 0 0 2px var(--color-content-secondary) inset;
+}
+
+.completed {
+  box-shadow: 0 0 0 4px var(--color-content-secondary) inset;
+}
