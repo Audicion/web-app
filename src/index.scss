@@ -23,6 +23,7 @@
   --border-radius-l: 10px;
 
   // Shadows
+  --box-shadow-card-stroke: 0px 0px 0px 0.5px rgb(255 255 255 / 4%) inset;
   --box-shadow-focus-stroke: 0 0 0 2px rgb(255 255 255 / 10%) inset;
 
   // Transitions;
@@ -46,18 +47,4 @@ h1 {
   margin: 0 0 30px;
   font: var(--font-heading);
   letter-spacing: var(--font-heading-letter-spacing);
-}
-
-.view {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.view-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-top: auto;
 }

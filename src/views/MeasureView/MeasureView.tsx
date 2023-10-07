@@ -1,6 +1,6 @@
 import { type ChangeEvent, type FC, useCallback, useState } from 'react';
 
-import { Button } from '$components';
+import { Button, Card } from '$components';
 import { useBeeper } from '$utils/beeper';
 
 import styles from './MeasureView.module.scss';
@@ -31,53 +31,54 @@ export const MeasureView: FC = () => {
   }, []);
 
   return (
-    <div className="view">
-      <div className="view-content">
-        <h1>Измерение 🎧</h1>
-        <div className={styles.row}>
-          <span>Громкость</span>
-          <input
-            className={styles.range}
-            type="range"
-            value={volume}
-            step={0.0001}
-            min={0}
-            max={1}
-            onChange={handleVolumeChange}
-          />
-        </div>
-        <div className={styles.row}>
-          <span>Баланс</span>
-          <input
-            className={styles.range}
-            type="range"
-            value={balance}
-            step={0.0001}
-            min={-1}
-            max={1}
-            onChange={handleBalanceChange}
-          />
-        </div>
-        <div className={styles.row}>
-          <span>Тон</span>
-          <input
-            className={styles.range}
-            type="range"
-            value={frequency}
-            step={10}
-            min={100}
-            max={2000}
-            onChange={handleFrequencyChange}
-          />
-        </div>
+    <Card
+      title="Измерение 🎧"
+      actions={
+        <>
+          {enabled ? (
+            <Button onClick={stop}>Выключить звук</Button>
+          ) : (
+            <Button onClick={start}>Включить звук</Button>
+          )}
+        </>
+      }
+    >
+      <div className={styles.row}>
+        <span>Громкость</span>
+        <input
+          className={styles.range}
+          type="range"
+          value={volume}
+          step={0.0001}
+          min={0}
+          max={1}
+          onChange={handleVolumeChange}
+        />
       </div>
-      <div className="view-actions">
-        {enabled ? (
-          <Button onClick={stop}>Выключить звук</Button>
-        ) : (
-          <Button onClick={start}>Включить звук</Button>
-        )}
+      <div className={styles.row}>
+        <span>Баланс</span>
+        <input
+          className={styles.range}
+          type="range"
+          value={balance}
+          step={0.0001}
+          min={-1}
+          max={1}
+          onChange={handleBalanceChange}
+        />
       </div>
-    </div>
+      <div className={styles.row}>
+        <span>Тон</span>
+        <input
+          className={styles.range}
+          type="range"
+          value={frequency}
+          step={10}
+          min={100}
+          max={2000}
+          onChange={handleFrequencyChange}
+        />
+      </div>
+    </Card>
   );
 };
