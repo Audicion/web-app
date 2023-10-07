@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { type FC, type HTMLAttributes, type ReactNode } from 'react';
 
+import { Typography } from '$components';
+
 import styles from './Card.module.scss';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -21,7 +23,9 @@ export const Card: FC<CardProps> = ({
   return (
     <div {...restProps} className={clsx(styles.card, className)}>
       <div className={styles.body}>
-        <h1>{title}</h1>
+        <Typography variant="title" color="title">
+          {title}
+        </Typography>
         {children}
       </div>
 

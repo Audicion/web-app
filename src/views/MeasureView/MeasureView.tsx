@@ -1,6 +1,6 @@
 import { type ChangeEvent, type FC, useCallback, useState } from 'react';
 
-import { Button, Card } from '$components';
+import { Button, Card, Typography } from '$components';
 import { useBeeper } from '$utils/beeper';
 
 import styles from './MeasureView.module.scss';
@@ -44,7 +44,7 @@ export const MeasureView: FC = () => {
       }
     >
       <div className={styles.row}>
-        <span>Громкость</span>
+        <Typography>Громкость</Typography>
         <input
           className={styles.range}
           type="range"
@@ -56,7 +56,7 @@ export const MeasureView: FC = () => {
         />
       </div>
       <div className={styles.row}>
-        <span>Баланс</span>
+        <Typography>Баланс</Typography>
         <input
           className={styles.range}
           type="range"
@@ -68,7 +68,7 @@ export const MeasureView: FC = () => {
         />
       </div>
       <div className={styles.row}>
-        <span>Тон</span>
+        <Typography>Тон</Typography>
         <input
           className={styles.range}
           type="range"

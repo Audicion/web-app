@@ -1,0 +1,43 @@
+.base {
+  margin: 0 0 14px;
+  font: var(--font-base);
+  letter-spacing: var(--font-base-letter-spacing);
+}
+
+.title {
+  margin: 0 0 30px;
+  font: var(--font-title);
+  letter-spacing: var(--font-title-letter-spacing);
+}
+
+.action-m {
+  font: var(--font-action-m);
+  letter-spacing: var(--font-action-m-letter-spacing);
+}
+
+.action-s {
+  font: var(--font-action-s);
+  letter-spacing: var(--font-action-s-letter-spacing);
+}
+
+.caption {
+  font: var(--font-caption);
+  letter-spacing: var(--font-caption-letter-spacing);
+}
+
+.shortcut {
+  font: var(--font-shortcut);
+  letter-spacing: var(--font-shortcut-letter-spacing);
+}
+
+.color-primary {
+  color: var(--color-content-primary);
+}
+
+.color-secondary {
+  color: var(--color-content-secondary);
+}
+
+.color-title {
+  color: var(--color-content-title);
+}
