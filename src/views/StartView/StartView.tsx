@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react';
 import { type FC } from 'react';
 
-import { Button, Card, Stepper } from '$components';
+import { Button, Card } from '$components';
 import {
   $step,
   nextStep,
@@ -26,8 +26,8 @@ export const StartView: FC = () => {
           <Button onClick={() => setView('measure')}>Далее</Button>
         </>
       }
-    >
-      <Stepper count={STEP_COUNT} active={activeStep} />
-    </Card>
+      stepCount={STEP_COUNT}
+      activeStep={activeStep}
+    ></Card>
   );
 };

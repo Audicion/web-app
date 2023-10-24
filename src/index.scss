@@ -33,9 +33,13 @@
   --box-shadow-card-stroke: 0px 0px 0px 0.5px rgb(255 255 255 / 4%) inset;
   --box-shadow-focus-stroke: 0 0 0 2px rgb(255 255 255 / 10%) inset;
 
-  // Transitions;
+  // Transitions
   --transition-slow: 0.3s ease-out;
   --transition-default: 0.18s ease-out;
+
+  // Z-Indexes
+  --z-index-backdrop: 0;
+  --z-index-content: 1;
 
   color-scheme: 'dark';
 }
