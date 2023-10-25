@@ -1,14 +1,13 @@
-import { useStore } from '@nanostores/react';
 import { type ChangeEvent, type FC, useCallback, useState } from 'react';
 
 import { Button, Card, Typography } from '$components';
-import { $step, STEP_COUNT } from '$stores/navigation';
+import { STEP_COUNT, useStep } from '$stores/navigation';
 import { useBeeper } from '$utils/beeper';
 
 import styles from './MeasureView.module.scss';
 
 export const MeasureView: FC = () => {
-  const activeStep = useStore($step);
+  const activeStep = useStep();
 
   const [volume, setVolume] = useState(0.5);
   const [balance, setBalance] = useState(0);
