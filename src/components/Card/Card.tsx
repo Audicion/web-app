@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { type FC, type HTMLAttributes, type ReactNode } from 'react';
 
-import { Stepper, Typography } from '$components';
+import { Typography } from '$components';
+import { CardFooter } from './CardFooter';
 
 import styles from './Card.module.scss';
 
@@ -9,7 +10,6 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   title: string;
   actions?: ReactNode;
-  footer?: ReactNode;
   activeStep?: number;
   stepCount?: number;
 }
@@ -17,7 +17,6 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 export const Card: FC<CardProps> = ({
   children,
   title,
-  footer,
   actions,
   className,
   activeStep,
@@ -25,7 +24,7 @@ export const Card: FC<CardProps> = ({
   ...restProps
 }) => {
   const isShowStepper = activeStep !== undefined;
-  const isShowFooter = actions || footer || isShowStepper;
+  const isShowFooter = actions || isShowStepper;
 
   return (
     <div {...restProps} className={clsx(styles.card, className)}>
@@ -37,17 +36,13 @@ export const Card: FC<CardProps> = ({
       </div>
 
       {isShowFooter && (
-        <div className={styles.footer}>
-          {footer && <div>{footer}</div>}
-
-          {isShowStepper && (
-            <div className={styles.stepper}>
-              <Stepper count={stepCount} active={activeStep} />
-            </div>
-          )}
-
-          {actions && <div className={styles.actions}>{actions}</div>}
-        </div>
+        <CardFooter
+          showStepper={isShowStepper}
+          stepCount={stepCount}
+          activeStep={activeStep}
+        >
+          {actions}
+        </CardFooter>
       )}
     </div>
   );
