@@ -7,9 +7,14 @@ module.exports = {
         ignorePseudoClasses: ['global'],
       },
     ],
+    'value-keyword-case': null,
+    'selector-class-pattern': [
+      '^([a-z][a-z0-9]*)([A-Z][a-z0-9]*)*$',
+      {
+        message: (selector) =>
+          `Expected class selector "${selector}" to be camelCase`,
+      },
+    ],
   },
   defaultSeverity: 'error',
-  rules: {
-    'value-keyword-case': null,
-  },
 };

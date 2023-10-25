@@ -45,11 +45,11 @@ export const Typography: FC<TypographyProps> = ({
         [styles.title]: variant === 'title',
         [styles.caption]: variant === 'caption',
         [styles.shortcut]: variant === 'shortcut',
-        [styles['action-s']]: variant === 'action-s',
-        [styles['action-m']]: variant === 'action-m',
-        [styles['color-primary']]: color === 'primary',
-        [styles['color-secondary']]: color === 'secondary',
-        [styles['color-title']]: color === 'title',
+        [styles.actionS]: variant === 'action-s',
+        [styles.actionM]: variant === 'action-m',
+        [styles.colorPrimary]: color === 'primary',
+        [styles.colorSecondary]: color === 'secondary',
+        [styles.colorTitle]: color === 'title',
       })}
     >
       {children}
